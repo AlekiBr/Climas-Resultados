@@ -6,78 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análise de Risco Climático</title>
     <style>
-        style>
+        style
             body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            transition: background-color 0.3s ease;
-        }
+                font-family: 'Roboto', sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                transition: background-color 0.3s ease;
+            }
 
-        .container {
-            max-width: 500px;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            transition: box-shadow 0.3s ease;
-        }
+            .container {
+                max-width: 500px;
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                transition: box-shadow 0.3s ease;
+            }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #444;
-            font-size: 2em;
-        }
+            h1 {
+                text-align: center;
+                margin-bottom: 30px;
+                color: #444;
+                font-size: 2em;
+            }
 
-        label {
-            font-weight: bold;
-            color: #666;
-            font-size: 1.2em;
-        }
+            label {
+                font-weight: bold;
+                color: #666;
+                font-size: 1.2em;
+            }
 
-        input[type="number"],
-        select {
-            width: calc(100% - 16px);
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            transition: border 0.3s ease;
-        }
+            input[type="number"],
+            select {
+                width: calc(100% - 16px);
+                padding: 12px;
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                box-sizing: border-box;
+                transition: border 0.3s ease;
+            }
 
-        button {
-            width: 100%;
-            padding: 15px;
-            background-color: #008cff;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+            button {
+                width: 100%;
+                padding: 15px;
+                background-color: #008cff;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
 
-        button:hover {
-            background-color: #006cb3;
-        }
+            button:hover {
+                background-color: #006cb3;
+            }
 
-        .resposta {
-            margin-top: 30px;
-            padding: 30px;
-            border-radius: 8px;
-            background-color: #fafafa;
-            border: 1px solid #ddd;
-            color: #444;
-            transition: border 0.3s ease;
-        }
-    </style>
-
+            .resposta {
+                margin-top: 30px;
+                padding: 30px;
+                border-radius: 8px;
+                background-color: #fafafa;
+                border: 1px solid #ddd;
+                color: #444;
+                transition: border 0.3s ease;
+            }
     </style>
 </head>
 
@@ -93,7 +91,7 @@
         </select><br>
 
         <label for="clima_atual">Qual a temperatura atual:</label>
-        <input type="text" id="clima_atual"><br>
+        <input type="number" id="clima_atual"><br>
 
         <label for="clima_maximo">Qual foi a temperatura máxima:</label>
         <input type="number" id="clima_maximo"><br>
@@ -118,12 +116,12 @@
             var clima_maximo = parseFloat(document.getElementById('clima_maximo').value);
             var clima_minimo = parseFloat(document.getElementById('clima_minimo').value);
             var umidade = parseFloat(document.getElementById('umidade').value);
-            var temperatura = parseFloat(document.getElementById('temperatura').value);
+            var temperatura = parseFloat(document.getElementById('clima_atual').value);
 
             var resultado = "Análise de Risco:<br>";
             resultado += "Risco: " + analisarRiscoClimatico(cultura, clima_atual, clima_maximo, clima_minimo, umidade, temperatura) + "<br><br>";
             resultado += "Ação Recomendada:<br>";
-            resultado += acaoRecomendada(cultura, clima_atual, temperatura) + "<br><br>";
+            resultado += acaoRecomendada(cultura, clima_atual, clima_maximo, clima_minimo, umidade, temperatura) + "<br><br>";
             resultado += "Pragas Associadas:<br>";
             resultado += pragasAssociadas(cultura, temperatura) + "<br><br>";
             resultado += "Controle de Pragas:<br>";
@@ -164,8 +162,8 @@
             }
         }
 
-        function acaoRecomendada(cultura, clima_atual, temperatura) {
-            var risco = analisarRiscoClimatico(cultura, clima_atual, temperatura);
+        function acaoRecomendada(cultura, clima_atual, clima_maximo, clima_minimo, umidade, temperatura) {
+            var risco = analisarRiscoClimatico(cultura, clima_atual, clima_maximo, clima_minimo, umidade, temperatura);
             if (risco === 'Alto risco') {
                 return 'O alto risco pode levar a pragas e morte nas plantas. Recomenda-se aumentar a irrigação e monitorar de perto as condições das plantas.';
             } else if (risco === 'Risco moderado') {
