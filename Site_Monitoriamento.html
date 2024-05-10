@@ -6,76 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análise de Risco Climático</title>
     <style>
-        style
-            body {
-                font-family: 'Roboto', sans-serif;
-                background-color: #f5f5f5;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                transition: background-color 0.3s ease;
-            }
+        style body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s ease;
+        }
 
-            .container {
-                max-width: 500px;
-                background-color: #fff;
-                border-radius: 15px;
-                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-                padding: 30px;
-                transition: box-shadow 0.3s ease;
-            }
+        .container {
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: box-shadow 0.3s ease;
+        }
 
-            h1 {
-                text-align: center;
-                margin-bottom: 30px;
-                color: #444;
-                font-size: 2em;
-            }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #444;
+            font-size: 2em;
+        }
 
-            label {
-                font-weight: bold;
-                color: #666;
-                font-size: 1.2em;
-            }
+        label {
+            font-weight: bold;
+            color: #666;
+            font-size: 1.2em;
+        }
 
-            input[type="number"],
-            select {
-                width: calc(100% - 16px);
-                padding: 12px;
-                margin-bottom: 20px;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                box-sizing: border-box;
-                transition: border 0.3s ease;
-            }
+        input[type="number"],
+        select {
+            width: calc(100% - 16px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border 0.3s ease;
+        }
 
-            button {
-                width: 100%;
-                padding: 15px;
-                background-color: #008cff;
-                color: #fff;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #008cff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-            button:hover {
-                background-color: #006cb3;
-            }
+        button:hover {
+            background-color: #006cb3;
+        }
 
-            .resposta {
-                margin-top: 30px;
-                padding: 30px;
-                border-radius: 8px;
-                background-color: #fafafa;
-                border: 1px solid #ddd;
-                color: #444;
-                transition: border 0.3s ease;
-            }
+        .resposta {
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            color: #444;
+            transition: border 0.3s ease;
+        }
     </style>
 </head>
 
@@ -108,7 +107,6 @@
     <div id="resultado" class="resposta">
         <!-- O resultado da análise será exibido aqui -->
     </div>
-
     <script>
         function analisarRisco() {
             var cultura = document.getElementById('cultura').value;
@@ -174,33 +172,59 @@
         }
 
         function pragasAssociadas(cultura, temperatura) {
+            var infoPragas = '';
+
             if (cultura === '1') {  // Cana de açúcar
                 if (temperatura < 18) {
-                    return 'Broca da cana-de-açúcar (Diatrea sacchralis) é uma praga que pode se desenvolver em temperaturas mais baixas.<br><br>Sintomas: Perfurações nos colmos, descoloração das folhas, murcha e morte de parte da planta.<br><br>Impacto na planta: As pragas podem causar danos diretos aos colmos, raízes e folhas da cana-de-açúcar, enfraquecendo a planta, reduzindo seu crescimento e diminuindo a produção de açúcar.';
+                    infoPragas += 'Broca da cana-de-açúcar (Diatrea saccharalis) é uma praga que pode se desenvolver em temperaturas mais baixas.<br><br>Sintomas: Perfurações nos colmos, descoloração das folhas, murcha e morte de parte da planta.<br><br>Impacto na planta: As pragas podem causar danos diretos aos colmos, raízes e folhas da cana-de-açúcar, enfraquecendo a planta, reduzindo seu crescimento e diminuindo a produção de açúcar.';
                 } else if (temperatura >= 18 && temperatura <= 30) {
-                    return 'Cigarrinha-das-raízes (Mahanarva fimbriolata) e cupim da cana-de-açúcar são pragas comuns em temperaturas médias.<br><br>Sintomas: Perfurações nos colmos, descoloração das folhas, murcha e morte de parte da planta.<br><br>Impacto na planta: As pragas podem causar danos diretos aos colmos, raízes e folhas da cana-de-açúcar, enfraquecendo a planta, reduzindo seu crescimento e diminuindo a produção de açúcar.';
+                    infoPragas += 'Cigarrinha-das-raízes (Mahanarva fimbriolata) e cupim da cana-de-açúcar são pragas comuns em temperaturas médias.<br><br>Sintomas: Perfurações nos colmos, descoloração das folhas, murcha e morte de parte da planta.<br><br>Impacto na planta: As pragas podem causar danos diretos aos colmos, raízes e folhas da cana-de-açúcar, enfraquecendo a planta, reduzindo seu crescimento e diminuindo a produção de açúcar.';
                 } else {
-                    return 'Broca da cana-de-açúcar (Diatrea sacchralis) e bicudo da cana-de-açúcar (Sphenophorus levis) podem se multiplicar mais rapidamente em altas temperaturas.<br><br>Sintomas: Perfurações nos colmos, descoloração das folhas, murcha e morte de parte da planta.<br><br>Impacto na planta: As pragas podem causar danos diretos aos colmos, raízes e folhas da cana-de-açúcar, enfraquecendo a planta, reduzindo seu crescimento e diminuindo a produção de açúcar.';
+                    infoPragas += 'Broca da cana-de-açúcar (Diatrea saccharalis) e bicudo da cana-de-açúcar (Sphenophorus levis) podem se multiplicar mais rapidamente em altas temperaturas.<br><br>Sintomas: Perfurações nos colmos, descoloração das folhas, murcha e morte de parte da planta.<br><br>Impacto na planta: As pragas podem causar danos diretos aos colmos, raízes e folhas da cana-de-açúcar, enfraquecendo a planta, reduzindo seu crescimento e diminuindo a produção de açúcar.';
                 }
+                infoPragas += 'Broca da cana-de-açúcar (Diatraea saccharalis): O ciclo biológico da broca da cana dura de 60 a 90 dias e é dependente da temperatura do ambiente. Em média o ciclo dura: 6 dias na fase de ovo, 28 dias na fase de larva, 10 dias na fase de pupa e 4-5 dias na fase adulta. A reprodução ocorre principalmente durante os meses mais quentes, que no Brasil são de setembro a março.'
+                infoPragas += '<br><img src="https://cs-assets.bayer.com/is/image/bayer/Broca_da_Cana_800x600" width="200" height="150"><br><br>';
+                infoPragas += 'Cigarrinha-das-raízes e cupim da cana-de-açúcar (Mahanarva fimbriolata): O ciclo de vida da cigarrinha das raízes apresenta duração de 60 dias, podendo chegar até a 80. Esse fato possibilita a presença de três gerações da praga a cada safra da cana. Durante esse período, a fêmea gera, em média, 340 ovos sobre o colmo da planta. A reprodução ocorre principalmente durante os meses mais quentes, que no Brasil são de setembro a março.<br><br>';
+                infoPragas += '<img src="https://cs-assets.bayer.com/is/image/bayer/mahanarva-fimbriolata-img" width="200" height="150"><br><br>';
+                infoPragas += '<img src="https://pasiontermitas.com/wp-content/uploads/2020/04/heterotermes-06_Interior-3.jpg" width="200" height="150"><br><br>';
+                infoPragas += 'Bicudo da cana-de-açúcar: O ciclo de vida do bicudo da cana-de-açúcar dura cerca de 224 dias. A fêmea adulta pode colocar até 1500 ovos durante sua vida, que dura cerca de três semanas. A reprodução ocorre principalmente durante os meses mais quentes, que no Brasil são de setembro a março.<br><br>';
+                infoPragas += '<img src="https://socicana.com.br/wp-content/uploads/SOCI1445-Artigo-Informativo-News-Foto.png" width="200" height="150">';
             } else if (cultura === '2') {  // Soja
                 if (temperatura < 10) {
-                    return 'Larvas de mariposas, como a lagarta elasmo, coró, piolho de cobra, caramujo, lesmas, grilos, gafanhotos, tamanduá e vaquinha, podem ser pragas problemáticas em temperaturas mais baixas.<br><br>Sintomas: Desfolha, perfurações nas folhas, danos nos brotos e podridão dos frutos.<br><br>Impacto na planta: As larvas se alimentam das folhas, brotos e frutos, reduzindo a área fotossintética, enfraquecendo a planta e comprometendo sua produção.';
+                    infoPragas += 'Larvas de mariposas, como a lagarta elasmo, coró, piolho de cobra, caramujo, lesmas, grilos, gafanhotos, tamanduá e vaquinha, podem ser pragas problemáticas em temperaturas mais baixas.<br><br>Sintomas: Desfolha, perfurações nas folhas, danos nos brotos e podridão dos frutos.<br><br>Impacto na planta: As larvas se alimentam das folhas, brotos e frutos, reduzindo a área fotossintética, enfraquecendo a planta e comprometendo sua produção.';
                 } else if (temperatura >= 10 && temperatura <= 40) {
-                    return 'Lagarta da soja (Anticarsia gemmatalis), lagarta do cartucho (Spodoptera frugiperda), lagarta-elasmo (Elasmopalpus lignosellus), lagarta-falsa-medideira (Chrysodeixis includens) e mosca-branca (Bemisia sp.) são pragas comuns em temperaturas médias.<br><br>Sintomas: Desfolha, perfurações nas folhas, danos nos brotos e podridão dos frutos.<br><br>Impacto na planta: As larvas se alimentam das folhas, brotos e frutos, reduzindo a área fotossintética, enfraquecendo a planta e comprometendo sua produção.';
+                    infoPragas += 'Lagarta da soja (Anticarsia gemmatalis), lagarta do cartucho (Spodoptera frugiperda), lagarta-elasmo (Elasmopalpus lignosellus), lagarta-falsa-medideira (Chrysodeixis includens) e mosca-branca (Bemisia sp.) são pragas comuns em temperaturas médias.<br><br>Sintomas: Desfolha, perfurações nas folhas, danos nos brotos e podridão dos frutos.<br><br>Impacto na planta: As larvas se alimentam das folhas, brotos e frutos, reduzindo a área fotossintética, enfraquecendo a planta e comprometendo sua produção.';
                 } else {
-                    return 'Percevejos e lagartas podem se multiplicar mais rapidamente em altas temperaturas.<br><br>Sintomas: Desfolha, perfurações nas folhas, danos nos brotos e podridão dos frutos.<br><br>Impacto na planta: As larvas se alimentam das folhas, brotos e frutos, reduzindo a área fotossintética, enfraquecendo a planta e comprometendo sua produção.';
+                    infoPragas += 'Percevejos e lagartas podem se multiplicar mais rapidamente em altas temperaturas.<br><br>Sintomas: Desfolha, perfurações nas folhas, danos nos brotos e podridão dos frutos.<br><br>Impacto na planta: As larvas se alimentam das folhas, brotos e frutos, reduzindo a área fotossintética, enfraquecendo a planta e comprometendo sua produção.';
                 }
+                infoPragas += 'Larvas de mariposas: A reprodução das mariposas ocorre principalmente durante a primavera e o verão. As larvas eclodem dos ovos após 2 ou 3 dias após a postura. No Brasil, isso geralmente ocorre entre setembro e março.'
+                infoPragas += '<br><img src="https://media.istockphoto.com/id/697330446/pt/foto/luminous-caterpillar.jpg?s=612x612&w=0&k=20&c=55PmJOvBCDHb0vtnr43W5KEHigBtPszB3yYsLCbBchI=" width="200" height="150"><br><br>';
+                infoPragas += 'Lagarta da soja: A reprodução da lagarta da soja ocorre principalmente durante a primavera e o verão. As larvas eclodem dos ovos após 2 ou 3 dias após a postura. No Brasil, isso geralmente ocorre entre setembro e março.'
+                infoPragas += '<img src="https://www.3tentos.com.br/imagens/uploads/164003183947770fe05a5257b4857716e49b1005433b5.jpg" width="200" height="150"><br><br>';
+                infoPragas += 'Lagarta do cartucho: O ciclo de vida da lagarta do cartucho é completo em 14 dias e é favorecido quando as temperaturas estão mais altas e o clima mais seco. No Brasil, isso geralmente ocorre entre setembro e março.'
+                infoPragas += '<img src="https://agroadvance.com.br/wp-content/uploads/2023/10/lagarta-do-cartucho.jpg" width="200" height="150"><br><br>';
+                infoPragas += 'Percevejos e lagartas: A reprodução dessas pragas ocorre principalmente durante a primavera e o verão. No Brasil, isso geralmente ocorre entre setembro e março.'
+                infoPragas += '<img src="https://www.infoescola.com/wp-content/uploads/2013/06/percevejo-de-cama_131698883.jpg" width="200" height="150"><br><br>';
+                infoPragas += '<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRCpzEFQ_YzNN8VSfwv70EuJt1lqY0p-424LSQvImeDlXmnWd4L" width="200" height="150"><br><br>';
             } else if (cultura === '3') {  // Café
                 if (temperatura < 18) {
-                    return 'Broca-do-café (Hypothenemus hampei) é uma praga que pode se desenvolver em temperaturas mais baixas.<br><br>Sintomas: Perfurações circulares nos grãos de café, danificando a qualidade e o rendimento da colheita.<br><br>Impacto na planta: A broca-do-café penetra nos frutos do café, causando danos diretos à semente. Isso pode enfraquecer a planta e reduzir sua produção.';
+                    infoPragas += 'Broca-do-café (Hypothenemus hampei) é uma praga que pode se desenvolver em temperaturas mais baixas.<br><br>Sintomas: Perfurações circulares nos grãos de café, danificando a qualidade e o rendimento da colheita.<br><br>Impacto na planta: A broca-do-café penetra nos frutos do café, causando danos diretos à semente. Isso pode enfraquecer a planta e reduzir sua produção.';
                 } else if (temperatura >= 18 && temperatura <= 24) {
-                    return 'Bicho-mineiro (Leucoptera coffeella) é uma praga comum em temperaturas médias.<br><br>Sintomas: Minas ou galerias nas folhas, causando descoloração e deformação.<br><br>Impacto na planta: A alimentação das larvas dentro das folhas pode enfraquecer a planta, reduzindo sua capacidade de fotossíntese e, consequentemente, afetando seu crescimento e produção.';
+                    infoPragas += 'Bicho-mineiro (Leucoptera coffeella) é uma praga comum em temperaturas médias.<br><br>Sintomas: Minas ou galerias nas folhas, causando descoloração e deformação.<br><br>Impacto na planta: A alimentação das larvas dentro das folhas pode enfraquecer a planta, reduzindo sua capacidade de fotossíntese e, consequentemente, afetando seu crescimento e produção.';
                 } else {
-                    return 'Ácaro vermelho pode se tornar uma praga problemática em altas temperaturas.<br><br>Sintomas: Descoloração das folhas, pequenas manchas amareladas e teias finas sobre a planta.<br><br>Impacto na planta: Os ácaros se alimentam dos tecidos foliares, causando danos que podem levar à queda prematura das folhas e à redução da produção de frutos.';
+                    infoPragas += 'Ácaro vermelho pode se tornar uma praga problemática em altas temperaturas.<br><br>Sintomas: Descoloração das folhas, pequenas manchas amareladas e teias finas sobre a planta.<br><br>Impacto na planta: Os ácaros se alimentam dos tecidos foliares, causando danos que podem levar à queda prematura das folhas e à redução da produção de frutos.';
                 }
+                infoPragas += 'Broca-do-café: A fêmea adulta perfura os grãos até a região da coroa dos frutos, onde deposita seus ovos. Em seguida, as larvas se alimentam dos grãos de café, produzindo uma nova geração entre 21 a 63 dias. A reprodução ocorre principalmente durante os meses mais quentes, que no Brasil são de setembro a março.'
+                infoPragas += '<br><img src="https://agriconline.com.br/portal/wp-content/uploads/2021/06/Captura-de-tela-inteira-07082020-133232.jpg" width="200" height="150"><br><br>';
+                infoPragas += 'Bicho-mineiro: O bicho-mineiro tem maior incidência nos períodos de setembro a outubro e de março a abril.'
+                infoPragas += '<img src="https://rehagro.com.br/blog/wp-content/uploads/2018/10/bicho-mineiro-no-cafeeiro.jpg" width="200" height="150"><br><br>';
+                infoPragas += 'Ácaro-vermelho: O ácaro-vermelho tem um ciclo de vida médio de 9,63 dias para as fêmeas e 8,94 dias para os machos. A longevidade média das fêmeas é de 16 dias, com uma produção média de 59 ovos por fêmea. Isso significa que o ácaro-vermelho pode se reproduzir durante épocas mais secas, desde que as condições ambientais sejam favoráveis. No entanto, a reprodução do ácaro-vermelho pode ser mais intensa em certas épocas do ano, dependendo da espécie do ácaro e das condições ambientais.Os meses variam entre maio a outubro, sendo julho o mês mais seco '
+                infoPragas += '<img src="https://maisagro.syngenta.com.br/wp-content/uploads/2021/07/IMAGEM02-glossario_de_alvos_acaro_vermelho.jpg" width="200" height="150">';
             } else {
-                return 'Não tenho informações sobre as pragas associadas a essa cultura.';
+                infoPragas += 'Não tenho informações sobre as pragas associadas a essa cultura.';
             }
+
+            return infoPragas;
         }
 
         function controlePragas(cultura) {
